@@ -1,0 +1,114 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="col-sm-10">
+        <div><strong>Chọn năm</strong></div>
+      </div>
+      <div class="col-sm-10">
+        <ng-multiselect-dropdown
+          [data]="dropdownList"
+          [(ngModel)]="selectedOption"
+          [settings]="dropdownOptionSettings"
+          (onSelect)="onOptionSelect($event)"
+          name="children"></ng-multiselect-dropdown>
+      </div>
+    </div>
+    <div class="col-lg-1">
+      <br/>
+        <div class="col-sm-1">
+            <button class="btn btn-primary" type="button" (click)="getStatisticCourse()">Lọc</button>
+        </div>
+    </div>
+  </div>
+  <br/>
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-pie-chart fa-lg mt-4"></i>
+              Thống kê số khóa học đước mở so với năm ngoái
+            </div>
+            <div class="card-body">
+              <div class="chart-wrapper">
+                <canvas baseChart
+              [data]="doughnutChartData"
+              [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType"
+              [colors]="doughnutChartColors"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="col-lg-12">
+      <div class="card">
+          <div class="card-header">
+              <i class="fa fa-bar-chart fa-lg mt-4"></i>
+          Thống kê các khóa phổ biến năm nay
+          </div>
+          <div class="card-body">
+            <div class="chart-wrapper" style="display: block" *ngIf="isDataThisYearAvailable" >
+              <canvas baseChart class="chart"
+              [datasets]="barChartThisYearData"
+              [labels]="barChartThisYearLabels"
+              [options]="barChartThisYearOptions"
+              [legend]="barChartThisYearLegend"
+              [chartType]="barChartThisYearType"
+              [colors]="barChartThisYearColors"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartThisYearClicked($event)"></canvas>
+            </div>
+          </div>
+        </div>
+  </div>
+  <div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <i class="fa fa-bar-chart fa-lg mt-4"></i>
+        Thống kê các khóa phổ biến năm ngoái
+        </div>
+        <div class="card-body">
+          <div class="chart-wrapper" style="display: block" *ngIf="isDataLastYearAvailable" >
+            <canvas baseChart class="chart"
+            [datasets]="barChartLastYearData"
+            [labels]="barChartLastYearLabels"
+            [options]="barChartLastYearOptions"
+            [legend]="barChartLastYearLegend"
+            [chartType]="barChartLastYearType"
+            [colors]="barChartLastYearColors"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartLastYearClicked($event)"></canvas>
+          </div>
+        </div>
+      </div>
+</div>
+<br/>
+<div class="card">
+  <div class="card-header">
+      <i class="fa fa-address-card fa-lg mt-4"></i>Khóa học nhiều học viên nhất
+  </div>
+  <div class="card-body">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th><i class="fa fa-user-circle fa-lg mt-4"></i> Tên</th> 
+        <th><i class="fa fa-info-circle fa-lg mt-4"></i> Mô tả</th> 
+        <th><i class="fa fa-check-square fa-lg mt-4"></i> Khóa học dài hạn</th> 
+        <th><i class="fa fa-user-o fa-lg mt-4"></i> Người tạo</th> 
+        <th><i class="fa fa-calendar-check-o fa-lg mt-4"></i> Cập nhật cuối </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{ courseMostStu.name }}</td>
+        <td>{{ courseMostStu.description }}</td>
+        <td>{{ courseMostStu.longTermCourse }}</td>
+        <td>{{ courseMostStu.audit?.createdBy }}</td>
+        <td>{{ courseMostStu.audit?.updatedBy }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+  

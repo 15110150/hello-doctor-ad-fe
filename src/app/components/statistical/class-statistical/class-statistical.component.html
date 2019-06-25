@@ -1,0 +1,64 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="col-sm-10">
+        <div><strong>Chọn năm</strong></div>
+      </div>
+      <div class="col-sm-10">
+        <ng-multiselect-dropdown
+          [data]="dropdownList"
+          [(ngModel)]="selectedOption"
+          [settings]="dropdownOptionSettings"
+          (onSelect)="onOptionSelect($event)"
+          name="children"></ng-multiselect-dropdown>
+      </div>
+    </div>
+    <div class="col-lg-1">
+      <br/>
+        <div class="col-sm-1">
+            <button class="btn btn-primary" type="button" (click)="getStatisticOfClass()">Lọc</button>
+        </div>
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+              Thống kê lớp học trong năm
+            </div>
+            <div class="card-body">
+              <div class="chart-wrapper">
+                <canvas baseChart class="chart"
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card">
+          <div class="card-header">
+            Thống kê lớp  so với năm ngoai
+          </div>
+          <div class="card-body">
+            <div class="chart-wrapper">
+              <canvas baseChart
+              [datasets]="lineChartData"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [chartType]="lineChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+            </div>
+          </div>
+        </div>
+  </div>
+  </div>
+</div>
+  

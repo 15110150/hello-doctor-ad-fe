@@ -1,0 +1,91 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-lg-3">
+      <br/>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Từ khóa" [(ngModel)] = "keyword" (keyup)="findCourse">
+        </div><!-- /input-group -->
+      </div>
+    <div class="col-lg-3">
+        <div class="col-sm-10">
+          <br/>
+            <button  class="btn btn-primary" type="button" (click)="findCourse()">Tìm kiếm</button>
+        </div>
+      </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> Danh sách bác sĩ
+        </div>
+        <div class="card-body">
+          <div class="input-group">
+              <!-- <button class="btn btn-primary" type='button' (click)="addCourse()"> Thêm mới
+              </button> -->
+            <!-- <div class="col-lg-1">
+              <button class="btn btn-primary" (click)="exportAsXLSX()" type="button"> Xuất excel</button>
+            </div> -->
+            <button class="btn btn-primary" (click)="exportAsXLSX()" type="button">Xuất excel</button>
+          </div>
+          <p></p>
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th>Tên</th>
+              <th>Ngày sinh</th>
+              <th>Số điện thoại</th>
+              <th>Chuyên khoa</th>
+              <th>Địa chỉ</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let element of courses">
+              <td>{{ element.name }}</td>
+              <td>{{ element.dateOfBirth }}</td>
+              <td>{{ element.phoneNumber }}</td>
+              <td>{{ element.department }}</td>
+              <td>{{ element.address }}</td>
+              <td>
+                <button class="btn btn-sm btn-primary" [routerLink]="['/menu/course/list/edit', element.id]"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-sm btn-danger " (click)="clickMethod(element)" id="btn-confirm"><i class="fa fa-trash"></i></button>
+                <button class="btn btn-sm btn-secondary " [routerLink]="['/menu/class/list', element.id]" id="btn-detail"><i class="fa fa-th-list" title="Xem danh sách lớp học"></i></button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+            <li class="page-item " [ngClass]="{'active': pe === currentPage + 1 }" *ngFor="let pe of listPage"
+                (click)="changePage(pe)">
+              <a class="page-link">{{pe}}</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"
+     id="mi-modal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+          aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Confirmar</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" id="modal-btn-si">Si</button>
+        <button type="button" class="btn btn-primary" id="modal-btn-no">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="alert" role="alert" id="result"></div>
