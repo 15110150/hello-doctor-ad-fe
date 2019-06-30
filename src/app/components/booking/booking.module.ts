@@ -1,37 +1,33 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { ListDoctorComponent } from './list-doctor/list-doctor.component';
-
-import { ListDoctorRoutingModule } from './doctor-routing.module';
 import { ExcelService } from '../../services/sharedServices/excel.service';
 import { NgxEditorModule } from 'ngx-editor';
-import { ListWaitingComponent } from './list-waiting/list-waiting.component';
-import { DetailDoctorComponent } from './detail-doctor/detail-doctor.component';
+
+import { ListBookingComponent } from './list-booking/list-booking.component';
+import { BookingRoutingModule } from './booking-routing.module';
 import { NgxPaginationModule} from 'ngx-pagination';
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
     imports: [
       CommonModule,
       FormsModule,
       MatTabsModule,
-      ListDoctorRoutingModule,
+      BookingRoutingModule,
       NgMultiSelectDropDownModule,
       NgxEditorModule,
       NgbModule,
-      NgxPaginationModule,
-      AngularFontAwesomeModule
+      NgxPaginationModule
     ],
     declarations: [
-        ListDoctorComponent,
-        ListWaitingComponent,
-        DetailDoctorComponent,
+        ListBookingComponent,
     ],
-    providers: [ ExcelService ]
+    providers: [ 
+        ExcelService,
+        DatePipe ]
   })
-export class DoctorModule {}
+export class BookingModule {}

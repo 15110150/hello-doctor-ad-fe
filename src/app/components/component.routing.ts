@@ -56,7 +56,47 @@ const routes: Routes = [
         children: [
           {
             path: 'doctor',
-            loadChildren: './doctor/doctor.module#ListDoctorModule'
+            loadChildren: './doctor/doctor.module#DoctorModule'
+          }
+        ]
+      },
+    ]
+  },
+  {
+    path: '',
+    data: {
+      title: 'Quản lí người dùng'
+    },
+    children: [
+      {
+        path: '',
+        data: {
+          title: 'Danh sách'
+        },
+        children: [
+          {
+            path: 'patient',
+            loadChildren: './patient/patient.module#PatientModule'
+          }
+        ]
+      },
+    ]
+  },
+  {
+    path: '',
+    data: {
+      title: 'Quản lí lịch hẹn'
+    },
+    children: [
+      {
+        path: '',
+        data: {
+          title: 'Danh sách'
+        },
+        children: [
+          {
+            path: 'booking',
+            loadChildren: './booking/booking.module#BookingModule'
           }
         ]
       },

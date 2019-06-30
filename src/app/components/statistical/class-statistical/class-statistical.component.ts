@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { StatisticClassRes } from '../../../model/statisticClassRes';
 
 @Component({
   selector: 'app-class-statistical',

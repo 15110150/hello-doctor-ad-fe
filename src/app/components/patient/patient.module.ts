@@ -5,13 +5,11 @@ import { NgModule } from '@angular/core';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { ListDoctorComponent } from './list-doctor/list-doctor.component';
+import { ListPatientComponent } from './list-patient/list-patient.component';
 
-import { ListDoctorRoutingModule } from './doctor-routing.module';
+import { PatientRoutingModule } from './patient-routing.module';
 import { ExcelService } from '../../services/sharedServices/excel.service';
 import { NgxEditorModule } from 'ngx-editor';
-import { ListWaitingComponent } from './list-waiting/list-waiting.component';
-import { DetailDoctorComponent } from './detail-doctor/detail-doctor.component';
 import { NgxPaginationModule} from 'ngx-pagination';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
@@ -20,7 +18,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
       CommonModule,
       FormsModule,
       MatTabsModule,
-      ListDoctorRoutingModule,
+      PatientRoutingModule,
       NgMultiSelectDropDownModule,
       NgxEditorModule,
       NgbModule,
@@ -28,10 +26,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
       AngularFontAwesomeModule
     ],
     declarations: [
-        ListDoctorComponent,
-        ListWaitingComponent,
-        DetailDoctorComponent,
+        ListPatientComponent
     ],
     providers: [ ExcelService ]
   })
-export class DoctorModule {}
+export class PatientModule {}

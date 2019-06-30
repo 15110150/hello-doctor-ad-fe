@@ -32,6 +32,7 @@ import {
   AppSidebarModule
 } from '@coreui/angular';
 import { AuthGuard } from './guards/auth.guard';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -75,6 +76,7 @@ export function tokenGetter() {
     MatToolbarModule,
     MatCardModule,
     MatButtonModule,
+    AngularFontAwesomeModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [AuthGuard],

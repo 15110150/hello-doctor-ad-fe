@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { StatisticCourseRes } from '../../../model/statisticCourseRes';
-import { Course } from 'src/app/model/course';
-
 @Component({
   selector: 'app-course-statistical',
   templateUrl: './course-statistical.component.html',

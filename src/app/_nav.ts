@@ -31,20 +31,13 @@ export const navItems = [
   },
   {
     name: 'Quản lí người dùng',
-    url: '/manage-center',
+    url: '/menu/patient/list',
     icon: 'icon-cursor',
-    children: [
-      {
-        name: 'Danh sách',
-        url: '/manage-center/app-employee-kind',
-        icon: 'icon-cursor'
-      },
-      {
-        name: 'Loại thành viên',
-        url: '/manage-center/app-employee',
-        icon: 'icon-cursor'
-      }
-    ]
+  },
+  {
+    name: 'Quản lí lịch hẹn',
+    url: '/menu/booking/list',
+    icon: 'icon-cursor',
   },
   {
     name: 'Quản lí marketing',
