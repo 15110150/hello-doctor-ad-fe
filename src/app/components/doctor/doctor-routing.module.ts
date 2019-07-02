@@ -18,7 +18,7 @@ const routes: Routes = [
         component: ListWaitingComponent
     },
     {
-        path: 'detail-doctor/:id',
+        path: 'detail-doctor/:r/:id',
         component: DetailDoctorComponent
     }
 ];

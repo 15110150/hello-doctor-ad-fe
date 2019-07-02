@@ -53,8 +53,7 @@
                   <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle>
                   </button>
                   <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                    <button class="dropdown-item" [routerLink]="['/menu/class/list/edit', element.id]">Sửa</button>
-                    <button class="dropdown-item" [routerLink]="['/menu/doctor/detail-doctor/', element.userId]">Xem chi tiết</button>
+                    <button class="dropdown-item" [routerLink]="['/menu/doctor/detail-doctor/','d', element.userId]">Xem chi tiết</button>
                   </div>
                 </div>
               </td>

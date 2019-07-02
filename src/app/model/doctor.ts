@@ -13,5 +13,6 @@ export class Doctor {
     rateSummary: number;
     title: string;
     userId: number;
-    workOffice: string
+    workOffice: string;
+    status: string;
 }

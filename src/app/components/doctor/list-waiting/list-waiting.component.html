@@ -3,14 +3,8 @@
       <div class="col-lg-3">
         <br/>
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Từ khóa" [(ngModel)] = "keyword" (keyup)="findCourse">
+            <input type="text" class="form-control" placeholder="Từ khóa" [(ngModel)] = "keyword" (keyup)="findDoctor(keyword)">
           </div><!-- /input-group -->
-        </div>
-      <div class="col-lg-3">
-          <div class="col-sm-10">
-            <br/>
-              <button  class="btn btn-primary" type="button" [(ngModel)]="keyword" (click)="findDoctor(keyword)">Tìm kiếm</button>
-          </div>
         </div>
     </div>
     <br/>
@@ -51,8 +45,7 @@
                     <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle>
                     </button>
                     <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                      <button class="dropdown-item" [routerLink]="['/menu/class/list/edit', element.id]">Sửa</button>
-                      <button class="dropdown-item" [routerLink]="['/menu/doctor/detail-doctor/', element.userId]">Xem chi tiết</button>
+                      <button class="dropdown-item" [routerLink]="['/menu/doctor/detail-doctor/', 'wait', element.userId]">Xem chi tiết</button>
                     </div>
                   </div>
                 </td>
