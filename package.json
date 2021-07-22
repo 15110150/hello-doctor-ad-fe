@@ -46,7 +46,7 @@
     "perfect-scrollbar": "^1.3.0",
     "popper.js": "^1.14.3",
     "rxjs": "6.4.0",
-    "xlsx": "^0.14.1",
+    "xlsx": "^0.17.0",
     "zone.js": "^0.8.29"
   },
   "devDependencies": {
